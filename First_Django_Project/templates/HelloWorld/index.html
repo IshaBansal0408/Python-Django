@@ -1,23 +1,26 @@
 {% extends 'HelloWorld/base.html' %} {%block head%}
-<script>
+<!-- <script>
     alert("Hello!")
-</script>
+</script> -->
 <style>
     .bold {
         font-weight: 1000;
     }
-</style>{%endblock%} {% block body %}
-<h1>
-    Welcome to my very first Django Project!</h1>
-{%if show_Owner != True%}
-<!-- {{owner}} pwn this comment -->
-<span>Developed By : {{owner}}</span>{%endif%}
+</style>{%endblock%} {% block body %} {% include 'HelloWorld/navBar.html' %}
 
-<ul>
-    {% for u in allUsers %}
-    <li class="{% cycle 'bold' '' %}">{{u}}</li>
-    {% endfor %}
-</ul>
+
+<div class="container">
+    <h4>
+        Welcome to my very first Django Project!</h4>
+    {%if show_Owner != True%}
+    <!-- {{owner}} pwn this comment -->
+    <span>Developed By : {{owner}}</span>{%endif%}
+    <ul class="collection">
+        {% for u in allUsers %}
+        <li class="{% cycle 'bold' '' %} collection-item">{{u}}</li>
+        {% endfor %}
+    </ul>
+</div>
 
 
 {%endblock%}
