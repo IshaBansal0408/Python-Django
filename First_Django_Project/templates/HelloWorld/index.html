@@ -1,0 +1,23 @@
+{% extends 'HelloWorld/base.html' %} {%block head%}
+<script>
+    alert("Hello!")
+</script>
+<style>
+    .bold {
+        font-weight: 1000;
+    }
+</style>{%endblock%} {% block body %}
+<h1>
+    Welcome to my very first Django Project!</h1>
+{%if show_Owner != True%}
+<!-- {{owner}} pwn this comment -->
+<span>Developed By : {{owner}}</span>{%endif%}
+
+<ul>
+    {% for u in allUsers %}
+    <li class="{% cycle 'bold' '' %}">{{u}}</li>
+    {% endfor %}
+</ul>
+
+
+{%endblock%}
