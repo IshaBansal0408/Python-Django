@@ -4,3 +4,11 @@ from django.shortcuts import render
 def index(request):
     context = {}
     return render(request,'main/index.html',context)
+
+def project(request):
+    context = {}
+    return render(request,'main/projects.html',context)
+
+def languages(request):
+    context = {}
+    return render(request,'main/languages.html',context)
