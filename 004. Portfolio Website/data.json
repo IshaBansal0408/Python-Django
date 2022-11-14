@@ -1,0 +1,10 @@
+{
+    "NAME": "Alice Swift",
+    "ABOUT_ME": "Hello there!",
+    "LANGUAGES": ["Python", "C++", "JavaScript", "TypeScript"],
+    "PROJECTS": [
+        ["Project", "Project 1", "Lorem ipsum dolor sit amet"],
+        ["Project", "Project 2", "Lorem ipsum dolor sit amet"],
+        ["Project", "Project 0", "Lorem ipsum dolor sit amet"]
+    ]
+}
