@@ -1,11 +1,13 @@
 {% extends 'main/base.html' %} {% block body %}
-<h1>Welcome to the Blogger</h1>
-<h5>Top 10 Blogs</h5>
-<ul>
-    {% for b in latest_blogs %}
-    <li>
-        <a href="{% url 'getBlog' b.pk %}">{{b}}</a>
-    </li>
-    {% endfor %}
-</ul>
+<div class="container">
+    <h1 class="center-align">Welcome to the Blogger</h1>
+    <h5 class="center-align">Top 10 Blogs</h5>
+    <ul>
+        {% for b in latest_blogs %}
+        <li>
+            <a href="{% url 'getBlog' b.pk %}">{{b}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

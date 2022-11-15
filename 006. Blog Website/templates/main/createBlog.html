@@ -1,19 +1,66 @@
 {% extends 'main/base.html' %} {% block body %}
-<h1>Create a new Blog Right here!</h1>
+<div class="container center-align">
+    <h1 class="center-align">Create a new Blog Right here!</h1>
+    {% if success %} Form Submitted Successfully! {%endif%}
+    <div class="row">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" name="title" id="title" placeholder="Enter Title Here" />
+                    <label for="first_name">Enter Title of the Blog Here: </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <select name="author">
+            {% for a in authors %}
+            <option value="{{a.id}}">{{a}}</option>
+            {% endfor %}
+          </select>
+                    <label>Choose Author</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea name="content" id="content" placeholder="Enter Content of the Blog Here" cols="30" class="materialize-textarea"></textarea>
+                    <label for="content">Enter the Conent of your Blog Here : </label>
+                </div>
+            </div>
 
-{% if success %} Form Submitted Successfully! {%endif%}
+            <button class="btn waves-effect waves-light" type="submit">
+        PUBLISH BLOG
+        <i class="material-icons right">send</i>
+      </button>
+            <br />
+            <br />
+            <button class="btn waves-effect waves-light #c0ca33 lime darken-1" type="reset">
+        RESET BLOG FORM
+        <i class="material-icons right">autorenew</i>
+      </button>
+        </form>
+    </div>
+    <!-- {% if success %} Form Submitted Successfully! {%endif%}
 
-<form method="POST">
-    {% csrf_token %}
-    <input type="text" name="title" id="title" placeholder="Enter Title Here" />
-    <textarea name="content" id="content" placeholder="Enter Content of the Blog Here" cols="30"></textarea>
-    <select name="author">
-    {% for a in authors %}
-    <option value="{{a.id}}">{{a}}</option>
-    {%endfor%}
-  </select>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="title" id="title" placeholder="Enter Title Here" />
+        <textarea name="content" id="content" placeholder="Enter Content of the Blog Here" cols="30"></textarea>
+        <select name="author">
+      {% for a in authors %}
+      <option value="{{a.id}}">{{a}}</option>
+      {%endfor%}
+    </select>
 
-    <button type="submit">Publish Blog</button>
-    <button type="reset">Reset Blog Form</button>
-</form>
-{% endblock %}
+        <button type="submit">Publish Blog</button>
+        <button type="reset">Reset Blog Form</button>
+    </form> -->
+</div>
+{% endblock %} {% block head %}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var elems = document.querySelectorAll("select");
+        var instances = M.FormSelect.init(elems);
+    });
+</script>
+{%endblock%}
