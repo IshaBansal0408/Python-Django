@@ -34,3 +34,24 @@ def author(request,pk):
         'cAuth' : auth
     }
     return render(request,'main/author.html',context)
+
+def createBlog(request):
+    
+    authors = models.Author.objects.all()
+    context={
+        'authors': authors 
+    }
+    
+    if(request.method == "POST"):
+        blogData = {
+            'title': request.POST['title'],
+            'content' : request.POST['content']
+        }
+        blog = models.Blog.objects.create(**blogData)
+        auth = models.Author.objects.filter(pk = request.POST['author'])
+        blog.authors.set(auth)
+        
+        context["success"] = True
+    
+    
+    return render(request, 'main/createBlog.html',context)
