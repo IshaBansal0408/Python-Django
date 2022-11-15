@@ -1,11 +1,11 @@
 {% extends 'main/base.html' %} {% block body %}
-<h1>Welcome to the Blogger</h1>
-<h5>Top 10 Blogs</h5>
+<h1>Name : {{cAuth.name}}</h1>
+<h4>Blogs Written :</h4>
 <ul>
-    {% for b in latest_blogs %}
+    {% for b in cAuth.blog_set.all %}
     <li>
         <a href="{% url 'getBlog' b.pk %}">{{b}}</a>
     </li>
-    {% endfor %}
+    {%endfor%}
 </ul>
 {% endblock %}

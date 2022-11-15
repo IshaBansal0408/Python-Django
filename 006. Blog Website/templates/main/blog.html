@@ -1,0 +1,10 @@
+{% extends 'main/base.html' %} {% block body %}
+<h1>{{cBlog.title}}</h1>
+<h3>Created At : {{cBlog.createdAt}}</h3>
+<h4>
+    Written By : {% for a in cBlog.authors.all %}
+    <a href="{% url 'getAuth' a.id %}">{{a}}</a> &nbsp; {%endfor%}
+</h4>
+
+<p>{{cBlog.content}}</p>
+{% endblock %}
