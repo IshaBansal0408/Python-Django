@@ -5,6 +5,8 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='/auth/login')
 def index(request):
-    context ={}
     return HttpResponse("This is the Index Page")
-    # return render(request,'main/index.html',context)
+    
+def defPage(request):
+    context ={}
+    return render(request,'main/index.html',context)

@@ -8,6 +8,11 @@
     <title>Document</title>
 </head>
 
-<body></body>
+<body>
+    {% if user.is_authenticated %}
+    <a href="/auth/logout">Logout</a>
+    <a href="{% url 'secure'%}">Redirect</a> {% else %}
+    <a href="/auth/login">Login</a> {%endif%}
+</body>
 
 </html>
