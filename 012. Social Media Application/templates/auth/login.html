@@ -1,3 +1,12 @@
 {%extends 'base.html'%} {%block body%}
-<h1>Login Page</h1>
+<div class="container">
+  <h1>Login Page</h1>
+  <form action="" method="post">
+    {{form}}
+    <button class="btn waves-effect waves-light" type="submit" name="action">
+      LOGIN
+      <i class="material-icons right">send</i>
+    </button>
+  </form>
+</div>
 {%endblock%}
