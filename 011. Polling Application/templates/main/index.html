@@ -1,0 +1,11 @@
+{%extends 'base.html'%} {%block body%}{%include 'main/components/navBar.html'%}
+
+<div class="container">
+    <h4>All Questions</h4>
+    <div class="collection">
+        {% for q in question_list%}
+        <a href="{%url 'question' q.pk%}" class="collection-item">{{q}}</a> {%endfor%}
+    </div>
+</div>
+
+{%endblock%}
