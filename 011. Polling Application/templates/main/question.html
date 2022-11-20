@@ -1,18 +1,31 @@
 {%extends 'base.html'%} {%block body%}{%include 'main/components/navBar.html'%}
 <div class="container">
     <h4>{{question.content}}</h4>
-    <div class="collection">
-        {% for c in question.choice_set.all%}
-        <div class="collection-item">
-            <label>
-        <input class="with-gap" name="group3" type="radio" />
-        <span>{{c.content}}</span>
-      </label>
+
+    <form action="" method="post">
+        {%csrf_token%}
+        <div class="collection">
+            {% for c in question.choice_set.all%}
+            <div class="collection-item">
+                {% if answer%} {{c.content}} {%if answer.c.id == c.id %}Selected{%endif%} {%else%}
+                <label>
+          <input class="with-gap" name="choice" type="radio" value="{{c.id}}" />
+          <span>{{c.content}}</span>
+        </label>{%endif%}
+            </div>
+            {%endfor%}
         </div>
-        {%endfor%}
-    </div>
-    <button class="btn waves-effect waves-light" type="submit" name="action">
-    Submit Answer
-  </button>
+        <button class="btn waves-effect waves-light" type="submit" name="action">
+      Submit Answer
+    </button>
+
+        <div class="row">
+            <p class="red">
+                <ul>{%for e in forms.errors%}
+                    <li>{{e}}</li>
+                    {%endfor%}</ul>
+            </p>
+        </div>
+    </form>
 </div>
 {%endblock%}
