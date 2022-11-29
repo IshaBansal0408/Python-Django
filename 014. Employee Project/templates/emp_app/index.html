@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>Welcome to the Home Page of the Application</h1>
-  </body>
-</html>
+{% extends 'base.html' %} {%block body%} {% include 'navBar.html' %}
+<div class="container" style="margin-top: 20px; text-align: center">
+  <h1>Welcome to the Employee Management System</h1>
+</div>
+{%endblock%} {%block head%}<style>
+  body {
+    background-image: url("https://cdn.pixabay.com/photo/2015/12/03/08/50/paper-1074131_960_720.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>
+{%endblock%}

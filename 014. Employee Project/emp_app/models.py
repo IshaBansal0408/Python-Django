@@ -22,13 +22,13 @@ class Employee(models.Model):
     GENDER = (("F", "Female"), ("M", "Male"), ("U", "Undisclosed"))
     first_name = models.CharField(max_length=256)
     last_name = models.CharField(max_length=256, blank=True)
-    birth_date = models.DateField(blank=True)
+    # birth_date = models.DateField(blank=True)
     gender = models.CharField(choices=GENDER, max_length=1)
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
     salary = models.IntegerField(default=0)
     bonus = models.IntegerField(default=0)
     role = models.ForeignKey(Role, on_delete=models.CASCADE)
-    phoneNo = models.IntegerField(default=0)
+    phoneNo = models.CharField(max_length=10)
     hire_date = models.DateField()
 
     def __str__(self):

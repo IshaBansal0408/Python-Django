@@ -6,3 +6,8 @@ from django.shortcuts import render
 def index(request):
     context = {}
     return render(request, 'emp_app/index.html', context)
+
+
+def employees(request):
+    context = {}
+    return render(request, 'emp_app/employees.html', context)
