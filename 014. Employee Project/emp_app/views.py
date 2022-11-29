@@ -11,3 +11,13 @@ def index(request):
 def employees(request):
     context = {}
     return render(request, 'emp_app/employees.html', context)
+
+
+def addEmployee(request):
+    context = {}
+    return render(request, 'emp_app/addEmployee.html', context)
+
+
+def filterEmployee(request):
+    context = {}
+    return render(request, 'emp_app/filterEmployee.html', context)

@@ -1,5 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Employee Management System</a>
+  <a class="navbar-brand" href="{% url 'index' %}"
+    >Employee Management System</a
+  >
   <button
     class="navbar-toggler"
     type="button"
@@ -17,6 +19,16 @@
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'employees' %}">
           Show All Employees
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'addEmployee' %}">
+          Add New Employee
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'filterEmployee' %}">
+          Filter Employee Data
         </a>
       </li>
     </ul>
