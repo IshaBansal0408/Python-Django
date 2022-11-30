@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from emp_app import models
-from emp_app import forms
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import (
     CreateView,
