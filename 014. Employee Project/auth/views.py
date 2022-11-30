@@ -7,4 +7,5 @@ from django.contrib.auth.views import (
 
 
 class Login(LoginView):
-    pass
+    template_name = 'auth/login.html'
+    redirect_authenticated_user = True

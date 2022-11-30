@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {%block body%}
+<div class="container" style="margin-top: 50px; text-align: center">
+  <h1>Please Login Into Account</h1>
+  {% if error %} {{error}} {%endif%}
+  <form action="" method="POST">
+    {% csrf_token %} {%for f in form%}
+    <label>{{f.label}}</label> {{f}}{%endfor%}
+
+    <button type="submit">LOGIN!</button>
+  </form>
+</div>
+{%endblock%}

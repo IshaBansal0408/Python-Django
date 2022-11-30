@@ -8,45 +8,54 @@ from django.views.generic import (
     DeleteView,
     UpdateView,
 )
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here
 
 
+@login_required(login_url='/auth/login')
 def index(request):
     context = {}
     return render(request, 'emp_app/index.html', context)
 
 
-class removeEmployee(DeleteView):
+class removeEmployee(LoginRequiredMixin, DeleteView):
     model = models.Employee
     # template_name = 'main/confirm.html'
     success_url = '/employees'
+    login_url = '/auth/login'
 
 
-class addEmployee(CreateView):
+class addEmployee(LoginRequiredMixin, CreateView):
     model = models.Employee
     template_name = 'emp_app/addEmployee.html'
     fields = '__all__'
     success_url = '/employees'
+    login_url = '/auth/login'
 
 
-class employees(ListView):
+class employees(LoginRequiredMixin, ListView):
     model = models.Employee
     template_name = 'emp_app/employees.html'
     context_object_name = 'allEmployees'
+    login_url = '/auth/login'
 
 
-class viewEmployee(DeleteView):
+class viewEmployee(LoginRequiredMixin, DeleteView):
     model = models.Employee
     template_name = 'emp_app/viewEmployee.html'
+    login_url = '/auth/login'
 
 
-class updateEmployee(UpdateView):
+class updateEmployee(LoginRequiredMixin, UpdateView):
     model = models.Employee
     template_name = 'emp_app/addEmployee.html'
     fields = '__all__'
     success_url = '/employees'
+    login_url = '/auth/login'
 
 
+@login_required(login_url='/auth/login')
 def filterEmployee(request):
     deptList = models.Department.objects.all()
     noResult = False
