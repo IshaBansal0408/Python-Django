@@ -1,5 +1,15 @@
 {% extends 'base.html' %} {%block body%} {% include 'navBar.html' %}
 <div class="container" style="margin-top: 20px; text-align: center">
   <h1>Add a New Employee</h1>
+  <form method="POST">
+    <!-- {{addForm}} -->
+    {%csrf_token%} {% for f in form%}
+    <div class="form-group">
+      <label class="">{{f.label}}</label>
+      {{f}}
+    </div>
+    {%endfor%}
+    <button type="submit" class="btn btn-success">Add Employee</button>
+  </form>
 </div>
 {%endblock%}
